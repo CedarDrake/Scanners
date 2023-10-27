@@ -23,7 +23,6 @@ public class ScannerReadCSVFile
         while (scanner.hasNext()) {
             // Read the next line of the file
             String line = scanner.nextLine();
-            System.out.println(line);
 
             // line now contains a line of comma-separated numbers
             // representing 10 test scores for each class.
@@ -48,8 +47,22 @@ public class ScannerReadCSVFile
             // Write your code in the space below!
             if (i != 1) {
                 Scanner scan = new Scanner(line).useDelimiter(",|\n");
+                int g = 0;
+                int c = 0;
+                int a = 0;
+                boolean sc = false;
+                while (scan.hasNextInt()) {
+                    if (sc == false) {
+                        c = scan.nextInt();
+                        sc = true;
+                    } else {
+                        a += scan.nextInt();
+                        g++;
+                    }
+                }
+                System.out.println(c + ": " + a/g);
             }
-            
+            i++;
             
         }
     }
